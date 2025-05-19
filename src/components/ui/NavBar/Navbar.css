@@ -1,0 +1,152 @@
+.myNavBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10%;
+  background: var(--Background);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.myNavBarLogo {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--Text);
+  cursor: pointer;
+}
+
+.myNavBarLogo img {
+  max-height: 40px;
+  width: auto;
+}
+
+.myLinks {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.myLink {
+  font-weight: 500;
+  color: var(--Text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.myLink a {
+  color: var(--Text);
+  text-decoration: none;
+  font-size: var(--font-size-links);
+  padding: 5px 0;
+  position: relative;
+  text-transform: lowercase;
+}
+
+.myLink a:hover {
+  color: var(--Accent);
+}
+
+.myLink a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--Accent);
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease;
+}
+
+.myLink a:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--Text);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile menu active state */
+.myNavBar.active .hamburger span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.myNavBar.active .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.myNavBar.active .hamburger span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.myNavBar.active .myLinks {
+  right: 0;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+  .myNavBar {
+    padding: 10px 5%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .myLinks {
+    position: fixed;
+    flex-direction: column;
+    background: var(--Background);
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    right: -100%;
+    padding-top: 80px;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    gap: 30px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .myLink {
+    width: 100%;
+    text-align: center;
+  }
+
+  .myLink a {
+    display: block;
+    font-size: calc(var(--font-size-links) * 1.2);
+    padding: 15px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .myNavBarLogo img {
+    max-height: 30px;
+  }
+
+  .myNavBar {
+    padding: 10px 20px;
+  }
+}

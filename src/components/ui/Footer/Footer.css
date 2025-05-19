@@ -1,0 +1,173 @@
+.myFooterWrapper {
+  background-color: var(--Primary);
+  color: white;
+  padding: var(--layout-padding);
+  font-size: var(--footer-font-size-text);
+  position: relative;
+}
+
+.myFooter {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.myFooterContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 30%;
+  text-align: left;
+  min-width: 250px;
+}
+
+.myFooterContainer h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.myFooterContainer h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 50px;
+  height: 3px;
+  background-color: white;
+}
+
+.myFooterContainer p {
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.myFooterContainer2 {
+  display: flex;
+  gap: 3rem;
+  justify-content: flex-end;
+  width: 60%;
+  flex-wrap: wrap;
+}
+
+.myFooterContainer2 > div {
+  min-width: 150px;
+}
+
+.myFooterContainer2 h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+
+.myFooterContainer2 h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 30px;
+  height: 2px;
+  background-color: white;
+}
+
+.myFooterContainer2 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.myFooterContainer2 ul li {
+  margin-bottom: 0.8rem;
+}
+
+.myFooterContainer2 ul li a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.myFooterContainer2 ul li a:hover {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.myFooterContainer2 .three ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.8;
+}
+
+.myFooterWrapper > p {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 992px) {
+  .myFooter {
+    flex-direction: column;
+    /* gap: 3rem; */
+
+  }
+  
+  .myFooterContainer,
+  .myFooterContainer2 {
+    width: 100%;
+  }
+  
+  .myFooterContainer {
+    /* text-align: center; */
+    align-items: center;
+  }
+  
+  .myFooterContainer h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .myFooterContainer2 {
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .myFooterContainer2 {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .myFooterContainer2 > div {
+    width: 100%;
+  }
+  
+  .myFooterContainer2 ul {
+    /* text-align: center; */
+  }
+  
+  .myFooterContainer2 h3 {
+    /* text-align: center; */
+  }
+
+  .myFooterContainer2 h3::after {
+    left: 3%;
+    transform: translateX(-50%);
+  }
+
+  .myFooterContainer2 ul li a,
+  .myFooterContainer2 .three ul li {
+    /* justify-content: center; */
+  }
+}

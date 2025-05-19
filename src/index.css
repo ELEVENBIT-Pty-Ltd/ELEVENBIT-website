@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --Primary: #2C5B4F;
+  --Background: #F3F8F5;
+  --Text: #0F1D18;
+  --Accent: 	#3E8A72;
+  --Secondary:#5E7D72;
+  --font-size-links: .9em;
+  --font-size-text: 1em;
+  --footer-font-size-text: .7em;
+  --layout-padding: 10px 10%
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+  transition: all .3s ease-in-out;
+}
+
+body{
+  font-family: 'Outfit', sans-serif;
+}
+
+::selection{
+  background: var(--Accent);
+  color: var(--Background);
+}
+
+::-webkit-scrollbar{
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb{
+  background: var(--Accent);
+}
+
+.scrollUpButton{
+
+  background-color: var(--Accent);
+  color: var(--Background);
+  border: none;
+  border-radius: 50%;
+  /* padding: 10px 15px; */
+  /* font-size: 24px; */
+  width: 40px;
+  height: 40px;
+  /* display: none; */
+  transition: all .3s ease-in-out;
+}
