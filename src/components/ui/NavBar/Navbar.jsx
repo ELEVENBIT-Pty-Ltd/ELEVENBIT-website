@@ -1,16 +1,23 @@
-"use client"
-
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import "./Navbar.css"
-import { ShoppingCart } from 'lucide-react';
 
 const Navbar = ({ onCartOpen }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
-  const handleCartOpen = () => {
-    onCartOpen(true)
-    setIsMenuOpen(false)
-  }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -22,7 +29,7 @@ const Navbar = ({ onCartOpen }) => {
   }
 
   return (
-    <div className={`myNavBar ${isMenuOpen ? "active" : ""}`}>
+    <div className={`myNavBar ${isMenuOpen ? "active" : ""} ${scrolled ? "scrolled" : ""}`}>
       <div className="myNavBarLogo">
         <a href="#Home" onClick={closeMenu}>
           <img
@@ -38,31 +45,40 @@ const Navbar = ({ onCartOpen }) => {
         <span></span>
       </div>
 
+      {/* HOME */}
       <ul className="myLinks">
         <li className="myLink">
           <a href="#Home" onClick={closeMenu}>
             Home
           </a>
         </li>
+
+        {/* ABOUT */}
         <li className="myLink">
           <a href="#About" onClick={closeMenu}>
-            About Us
+            About
           </a>
         </li>
+
+        {/* SERVICES */}
         <li className="myLink">
           <a href="#Services" onClick={closeMenu}>
-            Our Services
+            Services
           </a>
         </li>
+
+        {/* PROJECTS */}
         <li className="myLink">
-          <a href="#Connect" onClick={closeMenu}>
-            Lets Talk
+          <a href="#projects" onClick={closeMenu}>
+            Projects
           </a>
         </li>
-        <li className="myLink">
-          <a href="#Cart" onClick={handleCartOpen}>
-            <ShoppingCart size={18} />
-          </a>
+        <li className="myCartLink">
+          <button className="cartButton">
+            <a href="#Connect" onClick={closeMenu} className="contact-us">
+              CONTACT US
+            </a>
+          </button>
         </li>
       </ul>
     </div>
