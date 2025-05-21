@@ -9,7 +9,6 @@ const Home = () => {
   const featuresRef = useRef(null)
 
   useEffect(() => {
-    // Simple animation on load
     const elements = [headingRef.current, paragraphRef.current, ctaRef.current, imageRef.current, featuresRef.current]
     elements.forEach((el, index) => {
       if (el) {
@@ -60,7 +59,7 @@ const Home = () => {
               <button className="cta-button primary">
                 <span>GET STARTED</span>
                 <div className="circle-icon">
-                  <span className="arrow">→</span>
+                  <h5 className="arrow">GO</h5>
                 </div>
               </button>
 
@@ -74,8 +73,8 @@ const Home = () => {
                 <div className="feature-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="40"
-                    height="40"
+                    width="60"
+                    height="60"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -88,7 +87,7 @@ const Home = () => {
                 </div>
                 <div className="feature-text">
                   <h3>Secure</h3>
-                  <p>Enterprise-grade security</p>
+                  <h6 className="p-tag">Enterprise-grade security</h6>
                 </div>
               </div>
 
@@ -96,8 +95,8 @@ const Home = () => {
                 <div className="feature-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="40"
-                    height="40"
+                    width="60"
+                    height="60"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -111,7 +110,7 @@ const Home = () => {
                 </div>
                 <div className="feature-text">
                   <h3>Scalable</h3>
-                  <p>Grows with your business</p>
+                  <h6 className="p-tag">Grows with your business</h6>
                 </div>
               </div>
 
@@ -119,8 +118,8 @@ const Home = () => {
                 <div className="feature-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="40"
-                    height="40"
+                    width="60"
+                    height="60"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -133,7 +132,7 @@ const Home = () => {
                 </div>
                 <div className="feature-text">
                   <h3>Innovative</h3>
-                  <p>Cutting-edge technology</p>
+                  <h6 className="p-tag">Cutting-edge technology</h6>
                 </div>
               </div>
             </div>

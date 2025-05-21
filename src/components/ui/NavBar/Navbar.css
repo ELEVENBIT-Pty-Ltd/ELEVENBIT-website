@@ -1,4 +1,5 @@
-.myNavBar {
+.myNavBar 
+{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,37 +14,43 @@
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
 
-.myNavBar.scrolled {
+.myNavBar.scrolled 
+{
   padding: 12px 10%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
 }
 
-.myNavBarLogo {
+.myNavBarLogo 
+{
   font-size: 24px;
   font-weight: 600;
   color: var(--Text);
   cursor: pointer;
 }
 
-.myNavBarLogo img {
+.myNavBarLogo img 
+{
   max-height: 40px;
   width: auto;
   transition: all 0.3s ease;
 }
 
-.myNavBar.scrolled .myNavBarLogo img {
+.myNavBar.scrolled .myNavBarLogo img 
+{
   max-height: 35px;
 }
 
-.myLinks {
+.myLinks 
+{
   display: flex;
   gap: 40px;
   align-items: center;
 }
 
-.myLink {
+.myLink 
+{
   font-weight: 600;
   color: var(--Text);
   cursor: pointer;
@@ -52,12 +59,20 @@
 }
 
 
-.myCartLink {
+.myCartLink 
+{
   margin-left: 2em;
   position: relative;
 }
 
-.cartButton {
+.myCartLink-second 
+{
+  margin-left: -1em;
+  position: relative;
+}
+
+.cartButton 
+{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,15 +87,18 @@
   font-weight: 600;
 }
 
-.contact-us {
+.contact-us 
+{
   color: rgba(0, 0, 0, 0.7);
 }
 
-.contact-us:hover {
+.contact-us:hover 
+{
   color: rgba(255, 255, 255, 0.7);
 }
 
-.cartButton::before {
+.cartButton::before 
+{
   content: '';
   position: absolute;
   top: 0;
@@ -92,12 +110,14 @@
   z-index: -1;
 }
 
-.cartButton:hover::before {
+.cartButton:hover::before 
+{
   width: 100%;
 }
 
 
-.myLink a {
+.myLink a 
+{
   color: var(--Text);
   text-decoration: none;
   font-size: var(--font-size-links, 16px);
@@ -105,11 +125,13 @@
   position: relative;
 }
 
-.myLink a:hover {
+.myLink a:hover 
+{
   color: var(--Accent, #121211);
 }
 
-.myLink a::after {
+.myLink a::after 
+{
   content: "";
   position: absolute;
   width: 0;
@@ -120,12 +142,14 @@
   transition: width 0.3s ease;
 }
 
-.myLink a:hover::after {
+.myLink a:hover::after 
+{
   width: 100%;
 }
 
 /* Improved hamburger menu styling */
-.hamburger {
+.hamburger 
+{
   display: none;
   flex-direction: column;
   justify-content: space-between;
@@ -135,7 +159,8 @@
   z-index: 1000;
 }
 
-.hamburger span {
+.hamburger span 
+{
   display: block;
   height: 3px;
   width: 100%;
@@ -145,41 +170,51 @@
 }
 
 /* Mobile menu active state */
-.myNavBar.active .hamburger span:nth-child(1) {
+.myNavBar.active .hamburger span:nth-child(1) 
+{
   transform: translateY(9px) rotate(45deg);
 }
 
-.myNavBar.active .hamburger span:nth-child(2) {
+.myNavBar.active .hamburger span:nth-child(2) 
+{
   opacity: 0;
 }
 
-.myNavBar.active .hamburger span:nth-child(3) {
+.myNavBar.active .hamburger span:nth-child(3) 
+{
   transform: translateY(-9px) rotate(-45deg);
 }
 
-.myNavBar.active .myLinks {
+.myNavBar.active .myLinks 
+{
   right: 0;
   opacity: 1;
   visibility: visible;
 }
 
 /* Responsive styles */
-@media screen and (max-width: 992px) {
-  .myNavBar {
+@media screen and (max-width: 992px) 
+{
+  .myNavBar 
+  {
     padding: 15px 5%;
   }
 
-  .myNavBar.scrolled {
+  .myNavBar.scrolled 
+  {
     padding: 10px 5%;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .hamburger {
+@media screen and (max-width: 768px) 
+{
+  .hamburger 
+  {
     display: flex;
   }
 
-  .myLinks {
+  .myLinks 
+  {
     position: fixed;
     flex-direction: column;
     background: var(--Background, #ffffff);
@@ -197,37 +232,45 @@
     visibility: hidden;
   }
 
-  .myLink {
+  .myLink 
+  {
     width: 100%;
     text-align: center;
   }
 
-  .myLink a {
+  .myLink a 
+  {
     display: block;
     font-size: calc(var(--font-size-links, 16px) * 1.2);
     padding: 15px 0;
   }
 
-  .myCartLink {
+  .myCartLink 
+  {
     margin-left: 0;
     margin-top: 10px;
   }
 
-  .cartButton {
+  .cartButton 
+  {
     padding: 10px 20px;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .myNavBarLogo img {
+@media screen and (max-width: 480px) 
+{
+  .myNavBarLogo img 
+  {
     max-height: 30px;
   }
 
-  .myNavBar {
+  .myNavBar 
+  {
     padding: 12px 20px;
   }
 
-  .myNavBar.scrolled {
+  .myNavBar.scrolled 
+  {
     padding: 8px 20px;
   }
 }

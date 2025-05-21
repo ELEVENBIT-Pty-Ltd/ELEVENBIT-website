@@ -62,7 +62,7 @@ const Navbar = ({ onCartOpen }) => {
 
         {/* SERVICES */}
         <li className="myLink">
-          <a href="#Services" onClick={closeMenu}>
+          <a href="#services" onClick={closeMenu}>
             Services
           </a>
         </li>
@@ -73,10 +73,21 @@ const Navbar = ({ onCartOpen }) => {
             Projects
           </a>
         </li>
+
+        {/* CONTACT US */}
         <li className="myCartLink">
           <button className="cartButton">
             <a href="#Connect" onClick={closeMenu} className="contact-us">
               CONTACT US
+            </a>
+          </button>
+        </li>
+
+        {/* CONTACT US */}
+        <li className="myCartLink-second">
+          <button className="cartButton">
+            <a href="#Connect" onClick={closeMenu} className="contact-us">
+              CART
             </a>
           </button>
         </li>
