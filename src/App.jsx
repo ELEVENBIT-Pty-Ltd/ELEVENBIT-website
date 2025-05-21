@@ -7,7 +7,8 @@ import Services from './components/Sections/Services/Services'
 import Connect from './components/Sections/Connect/Connect'
 import Cart from './components/ui/Cart/Cart'
 import { ArrowUp } from 'lucide-react'
-// Custom hook for scroll reveal effect
+
+// CUSTOM HOOK FOR SCROLL REVEAL ANIMATION EFFECT
 const useScrollReveal = (threshold = 0.125) => {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -15,17 +16,17 @@ const useScrollReveal = (threshold = 0.125) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // When element enters viewport
+        // WHEN ELEMENT ENTERS VIEWPORT
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Once element has been revealed, no need to keep observing
+          // ONCE ELEMENT HAS BEEN REVEALED, STOP OBSERVING
           observer.unobserve(entry.target);
         }
       },
       {
-        root: null, // viewport
+        root: null, // VIEWPORT
         rootMargin: '0px',
-        threshold, // how much of the element needs to be visible
+        threshold, // HOW MUCH OF ELEMENT NEEDS TO BE VISIBLE
       }
     );
 
@@ -44,11 +45,11 @@ const useScrollReveal = (threshold = 0.125) => {
   return [ref, isVisible];
 };
 
-// ScrollReveal wrapper component
+// SCROLL REVEAL WRAPPER COMPONENT
 const ScrollReveal = ({ children, delay = 0, duration = 0.6, distance = '80px' }) => {
   const [ref, isVisible] = useScrollReveal();
 
-  // Define animation style
+  // DEFINE ANIMATION STYLE
   const revealStyle = {
     opacity: isVisible ? 1 : 0,
     transform: isVisible ? 'translateY(0)' : `translateY(${distance})`,
@@ -65,16 +66,35 @@ const ScrollReveal = ({ children, delay = 0, duration = 0.6, distance = '80px' }
 const App = () => {
   const [cartFileOpened, setCartFileOpened] = useState(false);
   const [showScrollButton, setShowScrollButton] = useState(false);
-  
-  // Set a threshold for when to show the scroll button (e.g., 300px scrolled)
+
+  // SCROLL THRESHOLD FOR SHOWING THE SCROLL BUTTON
   const SCROLL_THRESHOLD = 10;
-  
-  // Handle scroll event to show/hide scroll button
+
+  // HANDLE STATUS BAR COLOR BASED ON SCROLL POSITION
   useEffect(() => {
+    // CREATE OR FIND THE THEME-COLOR META TAG
+    let metaThemeColor = document.querySelector("meta[name=theme-color]");
+    if (!metaThemeColor) {
+      metaThemeColor = document.createElement("meta");
+      metaThemeColor.name = "theme-color";
+      document.head.appendChild(metaThemeColor);
+    }
+
+    // SET INITIAL COLOR
+    metaThemeColor.setAttribute("content", "#f3f8f5");
+
+    // UPDATE COLOR WHEN SCROLLING
     const handleScroll = () => {
       const currentScrollPosition = window.pageYOffset;
       
-      // Show button when scrolled down past threshold
+      // UPDATE STATUS BAR COLOR
+      if (currentScrollPosition > 20) {
+        metaThemeColor.setAttribute("content", "#f3f8f5f2");
+      } else {
+        metaThemeColor.setAttribute("content", "#f3f8f5");
+      }
+      
+      // HANDLE SCROLL BUTTON VISIBILITY
       if (currentScrollPosition > SCROLL_THRESHOLD) {
         setShowScrollButton(true);
       } else {
@@ -82,19 +102,17 @@ const App = () => {
       }
     };
 
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     
-    // Initial check in case page loads already scrolled
+    // INITIAL CHECK IN CASE PAGE LOADS ALREADY SCROLLED
     handleScroll();
     
-    // Clean up listener
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
-  
-  // Scroll to top function
+  }, [SCROLL_THRESHOLD]);
+
+  // SCROLL TO TOP FUNCTION
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -103,7 +121,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="app-container">
       <nav>
         <Navbar onCartOpen={setCartFileOpened} />
       </nav>
@@ -141,18 +159,22 @@ const App = () => {
       <footer>
         <Footer />
       </footer>
-      
-      {/* Scroll to top button - only shown when scrolled down */}
+
+      {/* SCROLL TO TOP BUTTON - ONLY SHOWN WHEN SCROLLED DOWN */}
       {showScrollButton && (
-        <button 
-          className="scrollUpButton" 
+        <button
+          className="scrollUpButton"
           onClick={scrollToTop}
           style={{
             position: 'fixed',
             bottom: '30px',
             right: '30px',
             zIndex: 99,
-            // padding: '10px 15px',
+            width: '40px',
+            height: '40px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             borderRadius: '50%',
             backgroundColor: 'var(--Primary)',
             color: 'white',
@@ -160,12 +182,19 @@ const App = () => {
             cursor: 'pointer',
             boxShadow: '0 2px 5px rgba(0,0,0,0.3)',
             opacity: 0.8,
-            transition: 'opacity 0.3s'
+            transition: 'opacity 0.3s, transform 0.2s',
+            transform: 'scale(1)',
           }}
-          onMouseOver={(e) => e.target.style.opacity = 1}
-          onMouseOut={(e) => e.target.style.opacity = 0.8}
+          onMouseOver={(e) => {
+            e.target.style.opacity = 1;
+            e.target.style.transform = 'scale(1.1)';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.opacity = 0.8;
+            e.target.style.transform = 'scale(1)';
+          }}
         >
-          <ArrowUp />
+          <ArrowUp size={20} />
         </button>
       )}
     </div>

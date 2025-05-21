@@ -1,6 +1,9 @@
 import { useEffect, useRef } from "react"
 import "./Home.css"
 
+// ICON
+import { IoIosArrowForward } from "react-icons/io";
+
 const Home = () => {
   const headingRef = useRef(null)
   const paragraphRef = useRef(null)
@@ -59,7 +62,9 @@ const Home = () => {
               <button className="cta-button primary">
                 <span>GET STARTED</span>
                 <div className="circle-icon">
-                  <h5 className="arrow">GO</h5>
+                  <div className="arrow">
+                    <IoIosArrowForward size={20}/>
+                  </div>
                 </div>
               </button>
 
@@ -91,7 +96,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="feature">
+              <div className="feature feature-two">
                 <div className="feature-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +119,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="feature">
+              <div className="feature feature-three">
                 <div className="feature-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

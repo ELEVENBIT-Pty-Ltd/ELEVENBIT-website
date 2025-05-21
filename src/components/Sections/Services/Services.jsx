@@ -257,7 +257,7 @@ const Services = () => {
                   </div>
 
                   <button className="service-cta">
-                    <span>Learn More</span>
+                    <span>ADD TO CART</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
